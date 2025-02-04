@@ -6,16 +6,13 @@ import { selectFilteredContacts } from "../../redux/ContactSlice";
 import styles from "./ContactList.module.css";
 
 const ContactList = () =>{
-    const contacts = useSelector(selectFilteredContacts);
-    const dispatch = useDispatch();
-    
+    const contacts = useSelector(selectFilteredContacts); 
     
     return(
         <ul className={styles.list}>
             {contacts.map(({id, name, number})=>(
-                <Contact key={id} id={id} name={name} number={number} onDelete={()=> dispatch(deleteContact(id))}  />
+                <Contact key={id} id={id} name={name} number={number} />
             ))}
-
         </ul>
     )
 }
